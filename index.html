@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Aurora N&N - Website Examples</title>
+    <link href="https://fonts.googleapis.com" rel="preconnect"/>
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet"/>
+    <style>
+        :root {
+            --bg-primary: #0a0a0a;
+            --bg-secondary: #111111;
+            --bg-card: #1a1a1a;
+            --text-primary: #ffffff;
+            --text-secondary: #a0a0a0;
+            --accent-green: #00ff88;
+            --accent-blue: #0088ff;
+            --accent-purple: #8800ff;
+            --accent-orange: #ff8800;
+            --accent-pink: #ff0088;
+            --accent-cyan: #00ffff;
+            --border: #333333;
+            --glow-green: 0 0 20px rgba(0, 255, 136, 0.3);
+            --glow-blue: 0 0 20px rgba(0, 136, 255, 0.3);
+            --glow-purple: 0 0 20px rgba(136, 0, 255, 0.3);
+            --glow-orange: 0 0 20px rgba(255, 136, 0, 0.3);
+            --glow-pink: 0 0 20px rgba(255, 0, 136, 0.3);
+            --glow-cyan: 0 0 20px rgba(0, 255, 255, 0.3);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+            position: relative;
+        }
+        
+        /* Animated Background */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(0, 255, 136, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(0, 136, 255, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(136, 0, 255, 0.1) 0%, transparent 50%);
+            z-index: -1;
+            animation: backgroundShift 20s ease-in-out infinite;
+        }
+        
+        @keyframes backgroundShift {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            25% { transform: translate(-10px, -10px) scale(1.1); }
+            50% { transform: translate(10px, -5px) scale(0.9); }
+            75% { transform: translate(-5px, 10px) scale(1.05); }
+        }
+        
+        /* Header */
+        .header {
+            text-align: center;
+            padding: 60px 20px 40px;
+            position: relative;
+        }
+        
+        .brand {
+            font-size: 3.5rem;
+            font-weight: 700;
+            background: linear-gradient(45deg, var(--accent-green), var(--accent-blue), var(--accent-purple));
+            background-size: 200% 200%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: gradientShift 3s ease-in-out infinite;
+            margin-bottom: 10px;
+        }
+        
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+        
+        .subtitle {
+            font-family: 'JetBrains Mono', monospace;
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+        
+        /* Grid Container */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 30px;
+            padding: 40px 0 80px;
+        }
+        
+        /* Cards */
+        .portfolio-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 0;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            cursor: pointer;
+        }
+        
+        .portfolio-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent-green), var(--accent-blue));
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+        
+        .portfolio-card:nth-child(1)::before { background: linear-gradient(90deg, var(--accent-green), var(--accent-cyan)); }
+        .portfolio-card:nth-child(2)::before { background: linear-gradient(90deg, var(--accent-blue), var(--accent-purple)); }
+        .portfolio-card:nth-child(3)::before { background: linear-gradient(90deg, var(--accent-purple), var(--accent-pink)); }
+        .portfolio-card:nth-child(4)::before { background: linear-gradient(90deg, var(--accent-orange), var(--accent-green)); }
+        .portfolio-card:nth-child(5)::before { background: linear-gradient(90deg, var(--accent-pink), var(--accent-blue)); }
+        .portfolio-card:nth-child(6)::before { background: linear-gradient(90deg, var(--accent-cyan), var(--accent-orange)); }
+        
+        .portfolio-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            border-color: var(--accent-green);
+            box-shadow: var(--glow-green);
+        }
+        
+        .portfolio-card:nth-child(1):hover { box-shadow: var(--glow-green); border-color: var(--accent-green); }
+        .portfolio-card:nth-child(2):hover { box-shadow: var(--glow-blue); border-color: var(--accent-blue); }
+        .portfolio-card:nth-child(3):hover { box-shadow: var(--glow-purple); border-color: var(--accent-purple); }
+        .portfolio-card:nth-child(4):hover { box-shadow: var(--glow-orange); border-color: var(--accent-orange); }
+        .portfolio-card:nth-child(5):hover { box-shadow: var(--glow-pink); border-color: var(--accent-pink); }
+        .portfolio-card:nth-child(6):hover { box-shadow: var(--glow-cyan); border-color: var(--accent-cyan); }
+        
+        .portfolio-card:hover::before {
+            transform: scaleX(1);
+        }
+        
+        /* Card Image */
+        .card-image {
+            width: 100%;
+            height: 220px;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, var(--bg-secondary), var(--bg-card));
+        }
+        
+        .card-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.1) 50%, transparent 70%),
+                radial-gradient(circle at 30% 30%, rgba(0, 255, 136, 0.2) 0%, transparent 50%);
+            animation: imageShine 4s ease-in-out infinite;
+        }
+        
+        @keyframes imageShine {
+            0%, 100% { opacity: 0.3; transform: translateX(-100%) rotate(45deg); }
+            50% { opacity: 0.8; transform: translateX(100%) rotate(45deg); }
+        }
+        
+        /* Card Content */
+        .card-content {
+            padding: 25px;
+        }
+        
+        .card-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: var(--text-primary);
+            position: relative;
+        }
+        
+        .card-title::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 30px;
+            height: 2px;
+            background: var(--accent-green);
+            transition: width 0.3s ease;
+        }
+        
+        .portfolio-card:nth-child(1) .card-title::after { background: var(--accent-green); }
+        .portfolio-card:nth-child(2) .card-title::after { background: var(--accent-blue); }
+        .portfolio-card:nth-child(3) .card-title::after { background: var(--accent-purple); }
+        .portfolio-card:nth-child(4) .card-title::after { background: var(--accent-orange); }
+        .portfolio-card:nth-child(5) .card-title::after { background: var(--accent-pink); }
+        .portfolio-card:nth-child(6) .card-title::after { background: var(--accent-cyan); }
+        
+        .portfolio-card:hover .card-title::after {
+            width: 50px;
+        }
+        
+        .card-description {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        
+        /* Tags */
+        .card-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+        
+        .tag {
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--text-secondary);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            font-family: 'JetBrains Mono', monospace;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .portfolio-card:hover .tag {
+            background: rgba(0, 255, 136, 0.1);
+            color: var(--accent-green);
+            border-color: var(--accent-green);
+        }
+        
+        .portfolio-card:nth-child(1):hover .tag { background: rgba(0, 255, 136, 0.1); color: var(--accent-green); border-color: var(--accent-green); }
+        .portfolio-card:nth-child(2):hover .tag { background: rgba(0, 136, 255, 0.1); color: var(--accent-blue); border-color: var(--accent-blue); }
+        .portfolio-card:nth-child(3):hover .tag { background: rgba(136, 0, 255, 0.1); color: var(--accent-purple); border-color: var(--accent-purple); }
+        .portfolio-card:nth-child(4):hover .tag { background: rgba(255, 136, 0, 0.1); color: var(--accent-orange); border-color: var(--accent-orange); }
+        .portfolio-card:nth-child(5):hover .tag { background: rgba(255, 0, 136, 0.1); color: var(--accent-pink); border-color: var(--accent-pink); }
+        .portfolio-card:nth-child(6):hover .tag { background: rgba(0, 255, 255, 0.1); color: var(--accent-cyan); border-color: var(--accent-cyan); }
+        
+        /* Button */
+        .card-button {
+            width: 100%;
+            background: transparent;
+            color: var(--text-primary);
+            padding: 12px 20px;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            display: block;
+        }
+        
+        .card-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transition: left 0.5s ease;
+        }
+        
+        .card-button:hover::before {
+            left: 100%;
+        }
+        
+        .portfolio-card:nth-child(1) .card-button:hover { background: var(--accent-green); color: var(--bg-primary); border-color: var(--accent-green); }
+        .portfolio-card:nth-child(2) .card-button:hover { background: var(--accent-blue); color: var(--bg-primary); border-color: var(--accent-blue); }
+        .portfolio-card:nth-child(3) .card-button:hover { background: var(--accent-purple); color: var(--bg-primary); border-color: var(--accent-purple); }
+        .portfolio-card:nth-child(4) .card-button:hover { background: var(--accent-orange); color: var(--bg-primary); border-color: var(--accent-orange); }
+        .portfolio-card:nth-child(5) .card-button:hover { background: var(--accent-pink); color: var(--bg-primary); border-color: var(--accent-pink); }
+        .portfolio-card:nth-child(6) .card-button:hover { background: var(--accent-cyan); color: var(--bg-primary); border-color: var(--accent-cyan); }
+        
+        /* Floating Elements */
+        .floating-element {
+            position: fixed;
+            width: 4px;
+            height: 4px;
+            background: var(--accent-green);
+            border-radius: 50%;
+            pointer-events: none;
+            animation: float 6s ease-in-out infinite;
+            z-index: -1;
+        }
+        
+        .floating-element:nth-child(1) { top: 20%; left: 10%; animation-delay: 0s; background: var(--accent-green); }
+        .floating-element:nth-child(2) { top: 60%; left: 80%; animation-delay: 2s; background: var(--accent-blue); }
+        .floating-element:nth-child(3) { top: 80%; left: 20%; animation-delay: 4s; background: var(--accent-purple); }
+        .floating-element:nth-child(4) { top: 40%; left: 90%; animation-delay: 1s; background: var(--accent-orange); }
+        .floating-element:nth-child(5) { top: 10%; left: 70%; animation-delay: 3s; background: var(--accent-pink); }
+        .floating-element:nth-child(6) { top: 70%; left: 5%; animation-delay: 5s; background: var(--accent-cyan); }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) scale(1); opacity: 0.3; }
+            50% { transform: translateY(-20px) scale(1.5); opacity: 0.8; }
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .brand {
+                font-size: 2.5rem;
+            }
+            
+            .subtitle {
+                font-size: 0.9rem;
+            }
+            
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+                padding: 20px 0 60px;
+            }
+            
+            .container {
+                padding: 0 15px;
+            }
+            
+            .header {
+                padding: 40px 15px 30px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .brand {
+                font-size: 2rem;
+            }
+            
+            .card-content {
+                padding: 20px;
+            }
+            
+            .card-title {
+                font-size: 1.3rem;
+            }
+        }
+        
+        /* Scroll Animations */
+        .portfolio-card {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+        
+        .portfolio-card:nth-child(1) { animation-delay: 0.1s; }
+        .portfolio-card:nth-child(2) { animation-delay: 0.2s; }
+        .portfolio-card:nth-child(3) { animation-delay: 0.3s; }
+        .portfolio-card:nth-child(4) { animation-delay: 0.4s; }
+        .portfolio-card:nth-child(5) { animation-delay: 0.5s; }
+        .portfolio-card:nth-child(6) { animation-delay: 0.6s; }
+        
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Floating Background Elements -->
+    <div class="floating-element"></div>
+    <div class="floating-element"></div>
+    <div class="floating-element"></div>
+    <div class="floating-element"></div>
+    <div class="floating-element"></div>
+    <div class="floating-element"></div>
+    
+    <!-- Header -->
+    <header class="header">
+        <h1 class="brand">Aurora N&N Business Solution Inc.</h1>
+        <p class="subtitle">Website Examples Portfolio</p>
+    </header>
+    
+    <!-- Portfolio Grid -->
+    <div class="container">
+        <div class="portfolio-grid">
+            <div class="portfolio-card">
+                <div class="card-image"></div>
+                <div class="card-content">
+                    <h3 class="card-title">Classic Business Design</h3>
+                    <p class="card-description">
+                        A clean, professional website with traditional business aesthetics. Perfect for established companies looking for a reliable, trustworthy online presence.
+                    </p>
+                    <div class="card-tags">
+                        <span class="tag">Responsive</span>
+                        <span class="tag">Professional</span>
+                        <span class="tag">Clean Design</span>
+                    </div>
+                    <a href="barrier.html" class="card-button" target="_blank">View Website</a>
+                </div>
+            </div>
+            
+            <div class="portfolio-card">
+                <div class="card-image"></div>
+                <div class="card-content">
+                    <h3 class="card-title">Modern Business Layout</h3>
+                    <p class="card-description">
+                        Contemporary design with enhanced visual hierarchy and improved user experience. Features modern typography and sophisticated color schemes.
+                    </p>
+                    <div class="card-tags">
+                        <span class="tag">Modern</span>
+                        <span class="tag">Enhanced UX</span>
+                        <span class="tag">Typography</span>
+                    </div>
+                    <a href="barrier1.html" class="card-button" target="_blank">View Website</a>
+                </div>
+            </div>
+            
+            <div class="portfolio-card">
+                <div class="card-image"></div>
+                <div class="card-content">
+                    <h3 class="card-title">Tech-Inspired Dark Theme</h3>
+                    <p class="card-description">
+                        Bold, futuristic design with dark backgrounds and neon accents. Perfect for tech companies and innovative businesses seeking a cutting-edge look.
+                    </p>
+                    <div class="card-tags">
+                        <span class="tag">Dark Theme</span>
+                        <span class="tag">Neon Accents</span>
+                        <span class="tag">Futuristic</span>
+                    </div>
+                    <a href="barrier2.html" class="card-button" target="_blank">View Website</a>
+                </div>
+            </div>
+            
+            <div class="portfolio-card">
+                <div class="card-image"></div>
+                <div class="card-content">
+                    <h3 class="card-title">Retro 80s/90s Style</h3>
+                    <p class="card-description">
+                        Nostalgic design inspired by the golden age of computing. Features vibrant colors, animated elements, and authentic retro aesthetics.
+                    </p>
+                    <div class="card-tags">
+                        <span class="tag">Retro</span>
+                        <span class="tag">Animated</span>
+                        <span class="tag">Nostalgic</span>
+                    </div>
+                    <a href="barrier3.html" class="card-button" target="_blank">View Website</a>
+                </div>
+            </div>
+            
+            <div class="portfolio-card">
+                <div class="card-image"></div>
+                <div class="card-content">
+                    <h3 class="card-title">Playful Cartoon Design</h3>
+                    <p class="card-description">
+                        Fun and engaging design with cartoon elements and playful animations. Ideal for family-friendly businesses and creative industries.
+                    </p>
+                    <div class="card-tags">
+                        <span class="tag">Cartoon</span>
+                        <span class="tag">Playful</span>
+                        <span class="tag">Family-Friendly</span>
+                    </div>
+                    <a href="barrier4.html" class="card-button" target="_blank">View Website</a>
+                </div>
+            </div>
+            
+            <div class="portfolio-card">
+                <div class="card-image"></div>
+                <div class="card-content">
+                                         <h3 class="card-title">Premium Professional Design</h3>
+                     <p class="card-description">
+                         Sophisticated design with premium aesthetics. Clean, minimal, and professional with exceptional attention to detail and modern elegance.
+                     </p>
+                     <div class="card-tags">
+                         <span class="tag">Premium</span>
+                         <span class="tag">Minimal</span>
+                         <span class="tag">Sophisticated</span>
+                     </div>
+                    <a href="barrier5.html" class="card-button" target="_blank">View Website</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

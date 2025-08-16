@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>E&amp;G Tree Barrier Installation</title>
+<link href="data:image/x-icon;base64," rel="icon" type="image/x-icon"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<style type="text/tailwindcss">
+    :root {
+      --primary-color: #22c55e;--secondary-color: #64748b;--background-color: #f8fafc;--text-primary: #1e293b;--text-secondary: #475569;--accent-color: #e2e8f0;--earthy-green: #16a34a;--earthy-brown: #57534e;--soft-grey: #cbd5e1;
+    }
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: var(--background-color);
+      color: var(--text-primary);
+    }
+    .button_primary {
+      @apply bg-[var(--primary-color)] text-white py-3 px-6 rounded-full font-semibold hover:bg-[var(--earthy-green)] focus:outline-none focus:ring-2 focus:ring-[var(--primary-color)] focus:ring-opacity-50 transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg;
+    }
+    .button_secondary {
+      @apply bg-transparent border-2 border-[var(--primary-color)] text-[var(--primary-color)] py-3 px-6 rounded-full font-semibold hover:bg-[var(--primary-color)] hover:text-white focus:outline-none focus:ring-2 focus:ring-[var(--primary-color)] focus:ring-opacity-50 transition-all duration-300 hover:shadow-lg transform hover:-translate-y-1;
+    }
+    .input {
+      @apply border border-[var(--soft-grey)] rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[var(--primary-color)] w-full bg-white transition-all duration-300 focus:shadow-md;
+    }
+    .typography_h1 {
+      @apply text-3xl sm:text-4xl md:text-5xl font-extrabold text-[var(--text-primary)] mb-4 tracking-tight;
+    }
+    .typography_h2 {
+      @apply text-2xl sm:text-3xl md:text-4xl font-bold text-[var(--text-primary)] mb-4 tracking-tight;
+    }
+    .typography_body {
+      @apply text-base sm:text-lg text-[var(--text-secondary)] leading-relaxed;
+    }
+    .logo {
+      @apply text-2xl sm:text-3xl font-bold text-[var(--text-primary)] transition-transform duration-300 hover:scale-105;
+    }
+    .navigation {
+      @apply bg-white/80 backdrop-blur-sm shadow-sm py-4 transition-all duration-300;
+    }
+    .nav_link {
+      @apply text-[var(--text-secondary)] hover:text-[var(--primary-color)] font-medium transition-colors duration-300 text-base sm:text-lg relative after:content-[''] after:absolute after:w-0 after:h-0.5 after:bg-[var(--primary-color)] after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:transition-all after:duration-300 hover:after:w-full;
+    }
+    .footer {
+      @apply bg-slate-800 py-12 text-center text-slate-400;
+    }
+    .card {
+      @apply bg-white rounded-xl shadow-lg p-6 sm:p-8 overflow-hidden transform hover:-translate-y-2 transition-all duration-300 hover:shadow-2xl;
+    }
+    @keyframes fadeIn { 
+        0% { opacity: 0; transform: translateY(20px); } 
+        100% { opacity: 1; transform: translateY(0); }
+    }
+    .fade-in {
+        animation: fadeIn 0.8s ease-out forwards;
+    }
+    .fade-in-delay-1 { animation-delay: 0.2s; }
+    .fade-in-delay-2 { animation-delay: 0.4s; }
+    .fade-in-delay-3 { animation-delay: 0.6s; }
+    .fade-in-delay-4 { animation-delay: 0.8s; }
+    
+    /* Mobile menu styles */
+    .mobile-menu {
+      @apply fixed inset-0 bg-white z-50 transform transition-transform duration-300 ease-in-out;
+    }
+    .mobile-menu.hidden {
+      transform: translateX(100%);
+    }
+    .mobile-menu.show {
+      transform: translateX(0);
+    }
+    .mobile-nav-link {
+      @apply block py-4 text-xl font-medium text-[var(--text-primary)] border-b border-gray-100 hover:text-[var(--primary-color)] transition-colors duration-300;
+    }
+  </style>
+</head>
+<body class="antialiased">
+<div class="relative flex size-full min-h-screen flex-col overflow-x-hidden">
+<header class="navigation sticky top-0 z-50">
+<div class="container mx-auto px-4 sm:px-6 flex justify-between items-center">
+<a class="logo" href="#">E&amp;G<span class="text-[var(--primary-color)]">.</span></a>
+<nav class="hidden md:flex items-center space-x-6 lg:space-x-10">
+<a class="nav_link" href="#home">Home</a>
+<a class="nav_link" href="#services">Services</a>
+<a class="nav_link" href="#about">About</a>
+<a class="nav_link" href="#contact">Contact</a>
+</nav>
+<a class="button_primary hidden md:block" href="#contact">Get a Free Quote</a>
+<button class="md:hidden text-slate-800" id="mobile-menu-btn">
+<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 6h16M4 12h16m-7 6h7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</button>
+</div>
+</header>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu hidden" id="mobile-menu">
+<div class="flex justify-between items-center p-6 border-b border-gray-200">
+<a class="logo" href="#">E&amp;G<span class="text-[var(--primary-color)]">.</span></a>
+<button class="text-slate-800" id="close-menu-btn">
+<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M6 18L18 6M6 6l12 12" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</button>
+</div>
+<nav class="p-6">
+<a class="mobile-nav-link" href="#home">Home</a>
+<a class="mobile-nav-link" href="#services">Services</a>
+<a class="mobile-nav-link" href="#about">About</a>
+<a class="mobile-nav-link" href="#contact">Contact</a>
+<a class="button_primary w-full mt-6" href="#contact">Get a Free Quote</a>
+</nav>
+</div>
+
+<main class="flex-grow">
+<section class="relative min-h-[60vh] sm:min-h-[80vh] flex items-center justify-center text-white bg-cover bg-center" id="home" style='background-image: linear-gradient(rgba(17, 24, 39, 0.6) 0%, rgba(17, 24, 39, 0.6) 100%), url("https://lh3.googleusercontent.com/aida-public/AB6AXuBQ1I5TIR95QEiwmIFu_m_vUbR58AR0Sm73kLsmaa-bcvI62SQecFeCOCy8pjVRm8rjk4IFdlNcIvJHmbRDCtvJOuiYlOXbMhYZMlff0AKcEQb53K4UGg1B1QeidLyja1hfZ3v3wj9fIRZNIffw-sWOctoVuaCAu0jLMci_hleNW-q-2__9BR7ZxXBN_M2292v9snnnA1OBnwTl5HFRrefR0bXOfeAeimhfpzKg0NmoL3OiMhfbKtvYGR9q9GvVyk0Y24E-9Zo_rys");'>
+<div class="text-center px-4 max-w-4xl mx-auto">
+<h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-extrabold leading-tight tracking-tighter mb-4 sm:mb-6 fade-in" style="animation-delay: 0.1s;">Expert Tree Barrier Fencing in BC</h1>
+<p class="text-lg sm:text-xl md:text-2xl text-slate-200 mx-auto fade-in" style="animation-delay: 0.3s;">Protecting nature's assets for subdivisions and new builds. We ensure compliance with city guidelines across the Lower Mainland and Fraser Valley.</p>
+<div class="mt-8 sm:mt-10 flex flex-col sm:flex-row items-center justify-center gap-4 fade-in" style="animation-delay: 0.5s;">
+<a class="button_primary w-full sm:w-auto" href="#contact">Request Your Quote</a>
+<a class="button_secondary w-full sm:w-auto" href="#services">Our Services</a>
+</div>
+</div>
+</section>
+<section class="py-16 sm:py-24 bg-slate-50" id="services">
+<div class="container mx-auto px-4 sm:px-6">
+<div class="text-center mb-12 sm:mb-16 fade-in">
+<h2 class="typography_h2">Our Professional Services</h2>
+<p class="typography_body max-w-3xl mx-auto">We are dedicated to providing comprehensive tree fencing solutions that ensure the protection and preservation of your valuable trees in compliance with all local bylaws.</p>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-10">
+<div class="card text-left fade-in" style="animation-delay: 0.2s;">
+<img alt="Subdivision Fencing" class="w-full h-48 sm:h-56 object-cover rounded-lg mb-4 sm:mb-6" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDpArhRItS-aGh4VHpWVZG9pGyEIukUwZlFefbhnBTe9ptYL97RcFXHC2iVq2mMLK_k1kIp3GSu9HWpfRXx9d5XevwrV0y5G9B9nDhwpcMy0atUPJGAwmq093Zye1pREi8Cu6Y09rpF_ooBluxJWmtNI3-hGPShqMIiKotJvb1Tj6oZPBSGc49Zg1qY9fXwkkLNYXtPu2Zq2glZ5SDP6ORK5vt5ISE4vfzO6RyhJVIa28Oav2KMV4dZzolbcCfSZdbHKFcrEcE0ML8"/>
+<h3 class="text-xl sm:text-2xl font-bold mb-3">Subdivision Tree Fencing</h3>
+<p class="typography_body">We install robust barrier fencing around designated tree protection zones, crucial for new subdivisions and developments to meet municipal requirements.</p>
+</div>
+<div class="card text-left fade-in" style="animation-delay: 0.4s;">
+<img alt="New Build Protection" class="w-full h-48 sm:h-56 object-cover rounded-lg mb-4 sm:mb-6" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCKF-T4oTA54JIe1yOewR2IlBXRRgZzINvM56GajAv-gna4Wav_8H3yMy6PSZNmrGjQ4yCADjj5-_BZ_LzEMXBHbvZQ7_uo6Ze6MRQDSilklKPwoUKnlg3azo-grTZTTClz6_S-3VxNS0w0Ngwd-z_a3TANhyAqM0I5fPlpdYvKDZiAFParsLp2AHYw1iW4lvV5sa2R6GBZjaHeOky3ZmNc_y5vNFHFqFiMDKEl0S-0B99JjGGXCQW2-buj6nuPT_IeBG0F7RUH7-4"/>
+<h3 class="text-xl sm:text-2xl font-bold mb-3">New Build Tree Protection</h3>
+<p class="typography_body">Safeguard trees on active construction sites with our durable fencing solutions, ensuring preservation throughout the building process and full bylaw compliance.</p>
+</div>
+<div class="card text-left fade-in" style="animation-delay: 0.6s;">
+<img alt="Quick Quotes" class="w-full h-48 sm:h-56 object-cover rounded-lg mb-4 sm:mb-6" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDiibQ2XzCLYTicz33za5q4AIiRbvMasHJWFGpSGccwy76vK1Xae_f3X1eW46gJLjl1l4Xr3RCed0HnsyukeLwXKPigo9egBcwevHnlnJwcG9-MO8q4o9Nm7GzEp3wBmBSmFCSc7H1pSewEWdIZ-CiQw3Tv9pA8ahsbCU2__0c1hPBPGdP434-ulJkalnDXTGDWf4beFd291cdlJXtBBOSxcFSWVo7jkwVW6G1BGpXoase3VNat3zg4Dd4MezKy5n7g6WMVrS58r-I"/>
+<h3 class="text-xl sm:text-2xl font-bold mb-3">Bylaw Compliance Fencing</h3>
+<p class="typography_body">We provide fencing solutions that strictly adhere to local city bylaws for tree protection, ensuring your project proceeds without compliance issues.</p>
+</div>
+</div>
+</div>
+</section>
+<section class="py-16 sm:py-24 bg-white" id="about">
+<div class="container mx-auto px-4 sm:px-6 text-center">
+<div class="fade-in">
+<h2 class="typography_h2">Servicing the Heart of British Columbia</h2>
+<p class="typography_body max-w-4xl mx-auto">
+    We proudly serve a wide area across the Lower Mainland and Fraser Valley. Our service area includes: <strong>Vancouver, Surrey, Langley, Delta, New Westminster, Burnaby, North Vancouver, West Vancouver, Abbotsford, Port Moody, Coquitlam, Port Coquitlam, and Tsawwassen.</strong>
+</p>
+</div>
+</div>
+</section>
+<section class="py-16 sm:py-24 bg-slate-50" id="contact">
+<div class="container mx-auto px-4 sm:px-6">
+<div class="text-center mb-12 sm:mb-16 fade-in">
+<h2 class="typography_h2">Get Your Free Quote Today!</h2>
+<p class="typography_body max-w-3xl mx-auto">Ready to get started? Contact us with your tree plan, and we'll provide a quick and fair quote. We look forward to working with you!</p>
+</div>
+<div class="max-w-2xl mx-auto bg-white p-6 sm:p-8 md:p-12 rounded-xl shadow-lg transform transition-all duration-500 hover:shadow-2xl hover:scale-105 fade-in">
+<form>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 mb-6">
+<input class="input" placeholder="Your Name" type="text"/>
+<input class="input" placeholder="Your Email" type="email"/>
+</div>
+<textarea class="input h-32 sm:h-40 mb-6" placeholder="Your Message &amp; Tree Plan Details"></textarea>
+<div class="text-center">
+<button class="button_primary w-full" type="submit">Send for a Quote</button>
+</div>
+</form>
+</div>
+</div>
+</section>
+</main>
+<footer class="footer">
+<div class="container mx-auto px-4 sm:px-6">
+<div class="flex flex-wrap items-center justify-center gap-x-4 sm:gap-x-8 gap-y-4 mb-8">
+<a class="text-slate-400 hover:text-white transition-colors duration-300" href="#">Privacy Policy</a>
+<a class="text-slate-400 hover:text-white transition-colors duration-300" href="#">Terms of Service</a>
+</div>
+<p class="text-base mb-2">© 2024 E&amp;G Tree Barrier Installation. All rights reserved.</p>
+<p class="text-sm">Serving the Lower Mainland and Fraser Valley, British Columbia</p>
+</div>
+</footer>
+</div>
+
+<script>
+// Mobile menu functionality
+const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+const closeMenuBtn = document.getElementById('close-menu-btn');
+const mobileMenu = document.getElementById('mobile-menu');
+
+mobileMenuBtn.addEventListener('click', () => {
+    mobileMenu.classList.remove('hidden');
+    mobileMenu.classList.add('show');
+    document.body.style.overflow = 'hidden';
+});
+
+closeMenuBtn.addEventListener('click', () => {
+    mobileMenu.classList.add('hidden');
+    mobileMenu.classList.remove('show');
+    document.body.style.overflow = 'auto';
+});
+
+// Close menu when clicking on a link
+const mobileNavLinks = mobileMenu.querySelectorAll('.mobile-nav-link');
+mobileNavLinks.forEach(link => {
+    link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+        mobileMenu.classList.remove('show');
+        document.body.style.overflow = 'auto';
+    });
+});
+
+// Close menu when clicking outside
+mobileMenu.addEventListener('click', (e) => {
+    if (e.target === mobileMenu) {
+        mobileMenu.classList.add('hidden');
+        mobileMenu.classList.remove('show');
+        document.body.style.overflow = 'auto';
+    }
+});
+</script>
+</body></html>
