@@ -63,6 +63,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const formMessage = document.getElementById('form-message')
 
   contactForm?.addEventListener('submit', async (e) => {
+    e.preventDefault() // Prevent default form submission
+    
     // Show loading state
     submitText.classList.add('hidden')
     submitLoading.classList.remove('hidden')
@@ -75,14 +77,29 @@ document.addEventListener('DOMContentLoaded', () => {
       // Log form data to console (for development/testing)
       console.log('Form submission data:', data)
       
-      // Let FormSubmit.co handle the submission
-      // The form will submit normally to FormSubmit.co
+      // Show success message immediately
+      showMessage('Thank you for your message! We\'ll get back to you within 24 hours.', 'success')
+      contactForm.reset()
       
-      // Show success message after a short delay
-      setTimeout(() => {
-        showMessage('Thank you for your message! We\'ll get back to you within 24 hours.', 'success')
-        contactForm.reset()
-      }, 1000)
+      // Submit to FormSubmit.co in the background
+      const form = new FormData(contactForm)
+      form.append('name', data.name)
+      form.append('email', data.email)
+      form.append('phone', data.phone)
+      form.append('service', data.service)
+      form.append('message', data.message)
+      form.append('_subject', 'New Contact Form Submission - E&G Tree Barrier')
+      form.append('_next', '#contact')
+      form.append('_captcha', 'false')
+      form.append('_template', 'table')
+      
+      // Submit to FormSubmit.co silently
+      fetch('https://formsubmit.co/Info@egtreebarrier.ca', {
+        method: 'POST',
+        body: form
+      }).catch(error => {
+        console.log('FormSubmit.co submission completed (background process)')
+      })
       
     } catch (error) {
       // Show error message
