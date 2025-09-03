@@ -724,7 +724,7 @@ export function setupApp() {
                <span>&copy; ${new Date().getFullYear()} E&G Tree Barrier Installation. All rights reserved.</span>
              </div>
              <div class="flex items-center space-x-6 text-sm text-gray-400">
-               <span>Developed by <a href="https://aurorabusiness.ca" target="_blank" rel="noopener noreferrer" class="hover:text-primary-400 transition-colors">Aurora N&N Business Solution Inc.</a></span>
+               <span>Powered by <a href="https://aurorabusiness.ca" target="_blank" rel="noopener noreferrer" class="hover:text-primary-400 transition-colors">Aurora N&N Business Solution Inc.</a></span>
              </div>
            </div>
          </div>
