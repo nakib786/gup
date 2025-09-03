@@ -4,6 +4,37 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
+# Build outputs
+dist/
+build/
+.vercel/
+
+# Environment variables
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Logs
+logs
+*.log
+
 # Runtime data
 pids
 *.pid
@@ -15,18 +46,6 @@ coverage/
 
 # nyc test coverage
 .nyc_output
-
-# Grunt intermediate storage
-.grunt
-
-# Bower dependency directory
-bower_components
-
-# node-waf configuration
-.lock-wscript
-
-# Compiled binary addons
-build/Release
 
 # Dependency directories
 jspm_packages/
@@ -46,23 +65,27 @@ jspm_packages/
 # dotenv environment variables file
 .env
 
-# Vercel
-.vercel
+# parcel-bundler cache (https://parceljs.org/)
+.cache
+.parcel-cache
 
-# IDE
-.vscode/
-.idea/
-*.swp
-*.swo
+# next.js build output
+.next
 
-# OS
-.DS_Store
-Thumbs.db
+# nuxt.js build output
+.nuxt
 
-# Logs
-logs
-*.log
+# vuepress build output
+.vuepress/dist
 
-# Temporary files
-*.tmp
-*.temp
+# Serverless directories
+.serverless
+
+# FuseBox cache
+.fusebox/
+
+# DynamoDB Local files
+.dynamodb/
+
+# TernJS port file
+.tern-port

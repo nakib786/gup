@@ -1,81 +1,125 @@
-# Aurora N&N Business Solution Inc. - Website Portfolio
+# E&G Tree Barrier Installation Website
 
-A professional portfolio showcasing diverse website design examples for Aurora N&N Business Solution Inc.
+Professional tree barrier installation services website for British Columbia.
 
-## 🚀 Deployment on Vercel
+## 🚀 Quick Start
 
-This project is optimized for Vercel deployment. Follow these steps to deploy:
+### Prerequisites
+- Node.js 18+ 
+- npm or yarn
 
-### Option 1: Deploy via Vercel Dashboard
-1. Go to [vercel.com](https://vercel.com)
-2. Click "New Project"
-3. Import your GitHub repository
-4. Vercel will automatically detect the configuration
-5. Click "Deploy"
+### Installation
+```bash
+# Install dependencies
+npm install
 
-### Option 2: Deploy via Vercel CLI
+# Start development server
+npm run dev
+
+# Build for production
+npm run build
+
+# Preview production build
+npm run preview
+```
+
+## 🏗️ Project Structure
+
+```
+├── src/
+│   ├── app.js          # Main application HTML
+│   ├── main.js         # Entry point and slideshow logic
+│   ├── interactions.js # Form handling and interactions
+│   ├── animations.js   # Scroll animations
+│   ├── style.css       # Main styles
+│   └── seo.css         # SEO-specific styles
+├── public/              # Static assets
+├── index.html           # HTML template
+├── vite.config.js       # Vite configuration
+├── tailwind.config.js   # Tailwind CSS configuration
+└── vercel.json          # Vercel deployment config
+```
+
+## 🚀 Vercel Deployment
+
+### Automatic Deployment (Recommended)
+1. Connect your GitHub repository to Vercel
+2. Vercel will automatically detect the Vite project
+3. Deploy with default settings
+
+### Manual Deployment
 ```bash
 # Install Vercel CLI
 npm i -g vercel
 
+# Login to Vercel
+vercel login
+
 # Deploy
-vercel
-
-# Follow the prompts
+vercel --prod
 ```
 
-## 📁 Project Structure
-```
-├── index.html          # Home page (Portfolio showcase)
-├── barrier.html        # Classic Business Design
-├── barrier1.html       # Modern Business Layout
-├── barrier2.html       # Tech-Inspired Dark Theme
-├── barrier3.html       # Retro 80s/90s Style
-├── barrier4.html       # Playful Cartoon Design
-├── barrier5.html       # Premium Professional Design
-├── vercel.json         # Vercel configuration
-└── README.md           # This file
-```
+### Environment Variables
+No environment variables required for basic deployment.
 
-## 🎨 Design Examples
+## 🔧 Build Configuration
 
-1. **Classic Business Design** - Traditional, professional aesthetics
-2. **Modern Business Layout** - Contemporary design with enhanced UX
-3. **Tech-Inspired Dark Theme** - Futuristic design with neon accents
-4. **Retro 80s/90s Style** - Nostalgic computing aesthetics
-5. **Playful Cartoon Design** - Fun, family-friendly design
-6. **Premium Professional Design** - Sophisticated, minimal design
-
-## 🔧 Configuration
-
-The `vercel.json` file includes:
-- Static file serving for HTML files
-- Route configuration for the home page
-- Security headers
-- Cache control settings
-
-## 🌐 Live Demo
-
-Once deployed, your portfolio will be available at:
-`https://your-project-name.vercel.app`
+- **Build Command**: `npm run build`
+- **Output Directory**: `dist`
+- **Install Command**: `npm install`
 
 ## 📱 Features
 
 - ✅ Responsive design
-- ✅ Modern animations
-- ✅ Interactive portfolio cards
-- ✅ Optimized for Vercel
-- ✅ Security headers
-- ✅ Fast loading times
+- ✅ SEO optimized
+- ✅ Contact form with FormSubmit.co
+- ✅ Image slideshow
+- ✅ Smooth animations
+- ✅ Mobile-friendly navigation
+- ✅ Structured data markup
 
-## 🛠️ Customization
+## 🎨 Styling
 
-To customize the portfolio:
-1. Edit `index.html` to modify the portfolio showcase
-2. Update individual HTML files for different design examples
-3. Modify `vercel.json` for deployment settings
-4. Update business information in the header
+- **CSS Framework**: Tailwind CSS
+- **Build Tool**: Vite
+- **PostCSS**: Autoprefixer
 
-## 📞 Contact
+## 📧 Contact Form
 
-For questions about deployment or customization, contact Aurora N&N Business Solution Inc.
+The contact form uses FormSubmit.co to send emails to `info@egtreebarrier.ca`.
+
+## 🔍 SEO Features
+
+- Meta tags optimization
+- Open Graph tags
+- Twitter Card support
+- Structured data (Schema.org)
+- Sitemap generation
+- Robots.txt configuration
+
+## 📁 File Naming Convention
+
+**Important**: All image files should use hyphens instead of spaces:
+- ✅ `hero-pic.jpeg` (correct)
+- ❌ `hero pic.jpeg` (incorrect)
+
+## 🚨 Common Issues
+
+### Build Errors
+- Ensure all image files use hyphens instead of spaces
+- Check that all dependencies are installed
+- Verify Node.js version compatibility
+
+### Form Issues
+- FormSubmit.co requires the email address to be verified
+- Check browser console for JavaScript errors
+
+## 📞 Support
+
+For technical support, contact:
+- **Developer**: Aurora N&N Business Solution Inc.
+- **Website**: https://aurorabusiness.ca
+
+## 📄 License
+
+Private project - All rights reserved.
