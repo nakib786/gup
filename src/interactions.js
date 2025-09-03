@@ -73,35 +73,34 @@ document.addEventListener('DOMContentLoaded', () => {
     const formData = new FormData(contactForm)
     const data = Object.fromEntries(formData)
     
-    try {
+        try {
       // Log form data to console (for development/testing)
       console.log('Form submission data:', data)
       
-      // Show success message immediately
-      showMessage('Thank you for your message! We\'ll get back to you within 24 hours.', 'success')
-      contactForm.reset()
-      
-      // Submit to FormSubmit.co in the background
-      const form = new FormData(contactForm)
+      // Submit to FormSubmit.co first
+      const form = new FormData()
       form.append('name', data.name)
       form.append('email', data.email)
-      form.append('phone', data.phone)
-      form.append('service', data.service)
+      form.append('phone', data.phone || '')
+      form.append('service', data.service || '')
       form.append('message', data.message)
       form.append('_subject', 'New Contact Form Submission - E&G Tree Barrier')
       form.append('_next', '#contact')
       form.append('_captcha', 'false')
       form.append('_template', 'table')
       
-      // Submit to FormSubmit.co silently
-      fetch('https://formsubmit.co/Info@egtreebarrier.ca', {
+      // Submit to FormSubmit.co
+      await fetch('https://formsubmit.co/Info@egtreebarrier.ca', {
         method: 'POST',
         body: form
-      }).catch(error => {
-        console.log('FormSubmit.co submission completed (background process)')
       })
       
+      // Show success message after successful submission
+      showMessage('Thank you for your message! We\'ll get back to you within 24 hours.', 'success')
+      contactForm.reset()
+      
     } catch (error) {
+      console.error('Form submission error:', error)
       // Show error message
       showMessage('Sorry, there was an error sending your message. Please try again or contact us directly.', 'error')
     } finally {
