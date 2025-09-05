@@ -13,6 +13,7 @@ if (currentYearElement) {
 // Initialize animations and interactions
 import './animations.js'
 import './interactions.js'
+import { initializeGallery } from './gallery.js'
 
 // Hero Slideshow Functionality
 function initHeroSlideshow() {
@@ -90,5 +91,8 @@ function initHeroSlideshow() {
   startAutoPlay()
 }
 
-// Initialize slideshow after DOM is loaded
-document.addEventListener('DOMContentLoaded', initHeroSlideshow)
+// Initialize slideshow and gallery after DOM is loaded
+document.addEventListener('DOMContentLoaded', () => {
+  initHeroSlideshow()
+  initializeGallery()
+})

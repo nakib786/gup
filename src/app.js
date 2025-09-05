@@ -17,7 +17,7 @@ export function setupApp() {
             <a href="#home" class="text-gray-700 hover:text-primary-600 font-medium transition-colors duration-200">Home</a>
             <a href="#about" class="text-gray-700 hover:text-primary-600 font-medium transition-colors duration-200">About</a>
             <a href="#services" class="text-gray-700 hover:text-primary-600 font-medium transition-colors duration-200">Services</a>
-
+            <a href="#gallery" class="text-gray-700 hover:text-primary-600 font-medium transition-colors duration-200">Gallery</a>
             <a href="#testimonials" class="text-gray-700 hover:text-primary-600 font-medium transition-colors duration-200">Testimonials</a>
             <a href="#contact" class="btn-primary">Get a Quote</a>
           </nav>
@@ -35,12 +35,12 @@ export function setupApp() {
     <!-- Mobile Menu -->
     <div id="mobile-menu" class="fixed inset-0 z-[9999] lg:hidden mobile-menu">
       <div class="fixed inset-0 bg-black/50 backdrop-blur-sm" id="mobile-menu-backdrop"></div>
-      <div class="fixed right-0 top-0 bottom-0 w-80 max-w-sm bg-white shadow-2xl">
-                 <div class="flex items-center justify-between p-6 border-b">
+      <div class="fixed right-0 top-0 bottom-0 w-80 max-w-sm bg-white shadow-2xl flex flex-col">
+                 <div class="flex items-center justify-between p-6 border-b flex-shrink-0">
            <div class="flex items-center space-x-3">
-             <img src="/logo.svg" alt="E&G Tree Barrier Logo" class="h-20 w-20">
+             <img src="/logo.svg" alt="E&G Tree Barrier Logo" class="h-16 w-16 sm:h-20 sm:w-20">
              <div>
-               <h2 class="text-lg font-bold text-gray-900">E&G Tree Barrier</h2>
+               <h2 class="text-base sm:text-lg font-bold text-gray-900">E&G Tree Barrier</h2>
              </div>
            </div>
           <button id="mobile-menu-close" class="p-2 rounded-lg hover:bg-gray-100 transition-colors">
@@ -49,22 +49,22 @@ export function setupApp() {
             </svg>
           </button>
         </div>
-                 <nav class="p-6 space-y-4">
+                 <nav class="p-6 space-y-4 flex-1 overflow-y-auto">
            <a href="#home" class="mobile-nav-link block py-3 text-lg font-medium text-gray-700 hover:text-primary-600 transition-colors">Home</a>
            <a href="#about" class="mobile-nav-link block py-3 text-lg font-medium text-gray-700 hover:text-primary-600 transition-colors">About</a>
            <a href="#services" class="mobile-nav-link block py-3 text-lg font-medium text-gray-700 hover:text-primary-600 transition-colors">Services</a>
-
+           <a href="#gallery" class="mobile-nav-link block py-3 text-lg font-medium text-gray-700 hover:text-primary-600 transition-colors">Gallery</a>
            <a href="#testimonials" class="mobile-nav-link block py-3 text-lg font-medium text-gray-700 hover:text-primary-600 transition-colors">Testimonials</a>
            <a href="#contact" class="mobile-nav-link block py-3 text-lg font-medium text-gray-700 hover:text-primary-600 transition-colors">Contact</a>
-           <div class="pt-4">
+           <div class="pt-4 pb-6">
              <a href="#contact" class="btn-primary w-full text-center block">Get a Quote</a>
            </div>
          </nav>
          
-                   <!-- Big Logo at Bottom -->
-          <div class="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-gray-50 to-transparent">
+                   <!-- Big Logo at Bottom - Only show on larger mobile screens -->
+          <div class="hidden sm:block absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-gray-50 to-transparent flex-shrink-0">
             <div class="flex justify-center items-center">
-              <img src="/logo.svg" alt="E&G Tree Barrier Logo" class="h-48 w-48 opacity-80">
+              <img src="/logo.svg" alt="E&G Tree Barrier Logo" class="h-32 w-32 sm:h-40 sm:w-40 opacity-80">
             </div>
           </div>
       </div>
@@ -374,7 +374,50 @@ export function setupApp() {
       </div>
     </section>
 
+    <!-- Recent Work Gallery Section -->
+    <section id="gallery" class="section-padding bg-gradient-to-br from-gray-50 to-white relative overflow-hidden">
+      <!-- Background Pattern -->
+      <div class="absolute inset-0 opacity-5">
+        <div class="absolute inset-0" style="background-image: radial-gradient(circle at 20% 80%, #22c55e 0%, transparent 50%), radial-gradient(circle at 80% 20%, #16a34a 0%, transparent 50%);"></div>
+      </div>
+      
+      <div class="container-custom relative z-10">
+        <div class="text-center mb-16 animate-on-scroll">
+          <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+            Our <span class="text-gradient">Recent Work</span>
+          </h2>
+          <div class="w-24 h-1 bg-gradient-to-r from-primary-500 to-primary-600 mx-auto mb-8"></div>
+          <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+            Explore our latest tree barrier installations and see the quality craftsmanship that sets us apart.
+          </p>
+        </div>
 
+
+        <!-- Modern Gallery Grid -->
+        <div class="gallery-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+          <!-- Gallery items will be added here -->
+        </div>
+
+        <!-- Call to Action -->
+        <div class="text-center mt-16 animate-on-scroll">
+          <div class="bg-gradient-to-r from-primary-500 to-primary-600 rounded-3xl p-8 md:p-12 text-white relative overflow-hidden">
+            <div class="absolute inset-0 bg-gradient-to-r from-primary-600/20 to-primary-500/20"></div>
+            <div class="relative z-10">
+              <h3 class="text-3xl md:text-4xl font-bold mb-4">Ready to Protect Your Trees?</h3>
+              <p class="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
+                Join our satisfied customers and give your trees the protection they deserve with our professional barrier installation services.
+              </p>
+              <a href="#contact" class="inline-flex items-center justify-center px-8 py-4 bg-white text-primary-600 font-semibold rounded-2xl shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300">
+                Get Your Free Quote Today
+                <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
     <!-- Testimonials Section -->
     <section id="testimonials" class="section-padding bg-white">
